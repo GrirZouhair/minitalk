@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:21:07 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/08 17:03:49 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/09 13:37:01 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,18 @@ ft_putchar('\n');
 
 void signlHandler(int sg, siginfo_t *info, void *just)
 {
-	static	int	c;
+	if(sg == SIGUSR1 || sg == SIGUSR2)
+	{
+		printf("yes message reciece sucess\n");
+		printf("%d\n", SIGUSR1);
+		printf("%d\n", SIGUSR1);
+		printf("%d\n", SIGUSR2);
+		printf("%d\n", SIGUSR2);
+		_exit(0);
+	}
 }
+
+
 
 int main(int ac, char **av)
 {
