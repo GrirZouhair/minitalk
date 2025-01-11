@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:21:07 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/09 13:37:01 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/11 11:45:40 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,34 @@ ft_putchar('\n');
 
 }
 
-
-void signlHandler(int sg, siginfo_t *info, void *just)
+void signlHandler(int sig, siginfo_t *info, void *just)
 {
-	if(sg == SIGUSR1 || sg == SIGUSR2)
-	{
-		printf("yes message reciece sucess\n");
-		printf("%d\n", SIGUSR1);
-		printf("%d\n", SIGUSR1);
-		printf("%d\n", SIGUSR2);
-		printf("%d\n", SIGUSR2);
-		_exit(0);
-	}
+    static int bit_count = 0;
+    static char received_char = 0;
+    
+    // Use info to access the PID of the sending process
+    pid_t sender_pid = info->si_pid;
+    
+    
+    received_char <<= 1;
+    
+    // Set the least significant bit depending on the signal type
+    if (sig == SIGUSR1)
+        received_char |= 1;  // Set bit to 1 if SIGUSR1 is received
+    
+    bit_count++;
+
+    if (bit_count == 8)
+    {
+        if (received_char == 0)
+            write(1, "\n", 1);
+        else
+            write(1, &received_char, 1);
+        
+        bit_count = 0;
+        received_char = 0;
+    }
 }
-
-
 
 int main(int ac, char **av)
 {
