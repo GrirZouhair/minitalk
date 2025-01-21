@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 12:21:07 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/13 10:41:06 by zogrir           ###   ########.fr       */
+/*   Created: 2025/01/11 17:11:38 by zogrir            #+#    #+#             */
+/*   Updated: 2025/01/13 10:56:58 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minitalk.h"
 
+
+
 void header(void)
 {
-ft_putstr_fd("\033[38;2;0;255;0m", 1);
-ft_putstr_fd("\n\n", 1);
-ft_putstr_fd("  ___  ___ _ ____   _____ _ __ \n", 1);
-ft_putstr_fd(" / __|/ _ \\ '__\\ \\ / / _ \\ '__|\n", 1);
-ft_putstr_fd(" \\__ \\  __/ |   \\ V /  __/ |   \n", 1);
-ft_putstr_fd(" |___/\\___|_|    \\_/ \\___|_|   \n", 1);
-ft_putstr_fd("\n", 1);
-ft_putstr_fd("	Process Id (PID) : ", 1);
-ft_putnbr(getpid());
-ft_putchar('\n');
+    ft_putstr_fd("\033[38;2;0;255;0m", 1); // Set color to green
+    ft_putstr_fd("\n\n", 1);
+    ft_putstr_fd("  ______ ______________  __ ___________ \n", 1);
+    ft_putstr_fd(" /  ___// __ \\_  __ \\  \\/ // __ \\_  __ \\\n", 1);
+    ft_putstr_fd(" \\___ \\\\  ___/|  | \\/\\   /\\  ___/|  | \\/\n", 1);
+    ft_putstr_fd(" /____  >\\___  >__|    \\_/  \\___  >__|   \n", 1);
+    ft_putstr_fd("      \\/     \\/                 \\/       \n", 1);
+    ft_putstr_fd("\n", 1);
+    ft_putstr_fd("  ___.                                    \n", 1);
+    ft_putstr_fd("  \\_ |__   ____   ____  __ __  ______     \n", 1);
+    ft_putstr_fd("   | __ \\ /  _ \\ /    \\|  |  \\/  ___/     \n", 1);
+    ft_putstr_fd("   | \\_\\ (  <_> )   |  \\  |  /\\___ \\      \n", 1);
+    ft_putstr_fd("   |___  /\\____/|___|  /____//____  >     \n", 1);
+    ft_putstr_fd("       \\/            \\/           \\/      \n", 1);
+    ft_putstr_fd("\n", 1);
+    ft_putstr_fd("  Process Id (PID) : ", 1);
+    ft_putnbr(getpid());
+    ft_putchar('\n');
 }
+
+
 
 void signlHandler(int sig, siginfo_t *info, void *just)
 {
@@ -47,7 +59,9 @@ void signlHandler(int sig, siginfo_t *info, void *just)
 	while (bit_count == 8)
 	{
 		if (received_char == 0)
-			write(1, "\n", 1);
+		{
+			write(1, "\n", 1);		
+		}
 		else
 			write(1, &received_char, 1);
 			

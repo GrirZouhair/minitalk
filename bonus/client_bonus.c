@@ -1,16 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/08 12:09:28 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/13 09:36:23 by zogrir           ###   ########.fr       */
+/*   Created: 2025/01/11 17:11:40 by zogrir            #+#    #+#             */
+/*   Updated: 2025/01/13 09:16:08 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include"../minitalk.h"
+
+
+void	signalHandler(int signl)
+{
+	if (SIGUSR1 == signl)
+	{
+		ft_putstr_fd("\033[1;32m✅ Message sent successfully!\033[0m\n", 1);
+	}
+}
+
 
 void ft_send_message(int PID, char character)
 {
@@ -51,6 +61,7 @@ int main(int ac, char **av)
         ft_putstr_fd("\033[1;31m🛑ERROR: PID Problem \033[0m\n", 2);
         return 1;
     }
+	signal(SIGUSR1, signalHandler);
     PID = ft_atoi(av[1]);
     message = av[2];
     while (*message != '\0')

@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <signal.h>
-#include <unistd.h>
-
 // Signal handler function
 // void handle_sigint(int sig) {
 //     printf("3ndek signal %d (SIGINT). Exiting gracefully!\n", sig);
@@ -54,27 +50,29 @@
 //=============================================================================
 
 // Signal handler for SIGUSR1
+#include<signal.h>
+#include<unistd.h>
 
-// void signal_handler(int signum)
-// {
-//     if (signum == SIGUSR1)
-//         write(1, "SIGUSR1\n", 9);  // Confirmation message
-//     else if (signum == SIGUSR2)
-//         write(1, "SIGUSR2\n", 9);  // If there's an error or some issue
-// 	_exit(0);
-// }
+void signal_handler(int signum)
+{
+    if (signum == SIGUSR1)
+        write(1, "SIGUSR1\n", 9);  // Confirmation message
+    else if (signum == SIGUSR2)
+        write(1, "SIGUSR2\n", 9);  // If there's an error or some issue
+	_exit(0);
+}
 
-// #include<stdio.h>
-// int main()
-// {
-// 	printf("SERVER PID %d\n", getpid());
-//     signal(SIGUSR1, signal_handler);
-//     signal(SIGUSR2, signal_handler);
+#include<stdio.h>
+int main()
+{
+	printf("SERVER PID %d\n", getpid());
+    signal(SIGUSR1, signal_handler);
+    signal(SIGUSR2, signal_handler);
 
-//     // Keep the process alive to receive signals
-//     while (1)
-//         pause();
-//     return 0;
-// }
+    // Keep the process alive to receive signals
+    while (1)
+        pause();
+    return 0;
+}
 
 

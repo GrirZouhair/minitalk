@@ -6,11 +6,11 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:54:32 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/09 12:04:58 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/13 10:12:34 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mandatory/minitalk.h"
+#include "minitalk.h"
 
 void	ft_putchar(char c)
 {
