@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:54:32 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/13 10:12:34 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/25 16:05:29 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_putchar(char c)
 	write (1, &c, 1);
 }
 
-void ft_putstr_fd(char *s, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
 	if (fd == -1 || !s)
 		return ;
 	while (*s)
-		write(fd, s++, 1);	
+		write(fd, s++, 1);
 }
 
 void	ft_putnbr(int n)
@@ -43,9 +43,10 @@ void	ft_putnbr(int n)
 	else
 		ft_putchar((i + '0'));
 }
-int ft_isdigit(int c)
+
+int	ft_isdigit(int c)
 {
-	return (c >= '0' && c <= '9');	
+	return (c >= '0' && c <= '9');
 }
 
 int	ft_atoi(const char *str)
@@ -73,5 +74,5 @@ int	ft_atoi(const char *str)
 		result = (result * 10) + (str[i] - '0');
 		i++;
 	}
-	return(result * sign);
+	return (result * sign);
 }

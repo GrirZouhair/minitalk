@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:09:28 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/25 13:09:37 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/25 15:05:44 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_send_message(int pid, char character)
 		i--;
 	}
 }
-
 
 int	main(int ac, char **av)
 {
