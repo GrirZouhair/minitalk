@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:11:40 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/25 15:17:46 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/26 13:37:15 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ int	main(int ac, char **av)
 	char		*message;
 
 	if (ac != 3)
-		return (ft_putstr_fd("\033[1;31m🛑ERROR: ARG Problem\033[0m\n", 2), 1);
+		return (ft_putstr_fd("\033[1;31m🛑ERROR: ARG Problem\033[0m\n", 2), 0);
 	if (av[1][0] == '-')
-		return (ft_putstr_fd("\033[1;31m🛑ERROR: pid Problem \033[0m\n", 2), 1);
+		return (ft_putstr_fd("\033[1;31m🛑ERROR: pid Problem \033[0m\n", 2), 0);
 	signal(SIGUSR1, signal_handler);
 	pid = ft_atoi(av[1]);
 	message = av[2];

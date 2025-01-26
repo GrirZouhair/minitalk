@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:21:07 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/25 13:45:04 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/26 13:35:49 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	signal_handler(int sig, siginfo_t *info, void *just)
 
 	(void)just;
 	pid = info->si_pid;
+	if (pid != info->si_pid)
+	{
+		bit_count = 0;
+		received_char = 0;
+	}
 	if (sig == SIGUSR1)
 		received_char = received_char << 1 | 1;
 	else
