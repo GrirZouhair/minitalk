@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 12:09:28 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/25 15:05:44 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:27:01 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int	main(int ac, char **av)
 	if (av[1][0] == '-')
 		return (ft_putstr_fd("\033[1;31m🛑ERROR:PID Problem\033[0m\n", 2), 0);
 	pid = ft_atoi(av[1]);
+	if (pid <= 0)
+		return (ft_putstr_fd("\033[1;31m🛑ERROR: failed\033[0m\n", 2), 0);
 	message = av[2];
 	while (*message != '\0')
 	{

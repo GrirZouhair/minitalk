@@ -6,7 +6,7 @@
 /*   By: zogrir <zogrir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 17:11:40 by zogrir            #+#    #+#             */
-/*   Updated: 2025/01/26 13:37:15 by zogrir           ###   ########.fr       */
+/*   Updated: 2025/01/28 14:27:10 by zogrir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int	main(int ac, char **av)
 		return (ft_putstr_fd("\033[1;31m🛑ERROR: pid Problem \033[0m\n", 2), 0);
 	signal(SIGUSR1, signal_handler);
 	pid = ft_atoi(av[1]);
+	if (pid <= 0)
+		return (ft_putstr_fd("\033[1;31m🛑ERROR: failed\033[0m\n", 2), 0);
 	message = av[2];
 	while (*message != '\0')
 	{
