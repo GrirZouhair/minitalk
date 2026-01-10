@@ -202,7 +202,7 @@ for i in {1..10}; do ./client $(pgrep server) "Message $i"; done
 
 **Zouhair Grir**
 - GitHub: [@GrirZouhair](https://github.com/GrirZouhair)
-- 42 Intra: zgrir
+- 42 Intra: zogrir
 
 ## 📄 License
 
